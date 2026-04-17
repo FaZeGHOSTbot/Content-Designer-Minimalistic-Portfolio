@@ -66,28 +66,21 @@ export default function About() {
                 variants={paragraphVariants}
                 className="font-sans text-base font-light text-mid-grey leading-[1.8] mb-6"
               >
-                Sridha Saha is a content designer with 5+ years of experience
-                shaping how digital products speak to people. She believes the
-                best UX writing is invisible—it guides, reassures, and empowers
-                users without ever getting in the way.
+I’m a content designer with 5+ years of experience shaping how digital products speak to people. I believe the best UX writing is invisible—it guides, reassures, and empowers users without ever getting in the way.
               </motion.p>
 
               <motion.p
                 variants={paragraphVariants}
                 className="font-sans text-base font-light text-mid-grey leading-[1.8] mb-6"
               >
-                Her work sits at the intersection of language, psychology, and
-                product design. From fintech to healthcare to SaaS, she brings
-                clarity to complex experiences—one carefully chosen word at a time.
+                My work sits at the intersection of language, psychology, and product design. From fintech to healthcare to SaaS, I focus on bringing clarity to complex experiences—one carefully chosen word at a time.
               </motion.p>
 
               <motion.p
                 variants={paragraphVariants}
                 className="font-sans text-base font-light text-mid-grey leading-[1.8]"
               >
-                Currently focused on financial services, healthcare, and
-                enterprise SaaS. Open to full-time roles and select freelance
-                engagements.
+                I’m currently focused on financial services, healthcare, and enterprise SaaS, and I’m open to full-time roles and select freelance engagements.
               </motion.p>
             </motion.div>
 

@@ -37,10 +37,15 @@ export const projects: Project[] = [
   tags: ['UX Writing', 'Content Design', 'Data UX', 'Error Handling'],
   image: '/images/onboarding/project1_5.jpeg',
 
-  overview: '',
-  challenge: '',
-  approach: '',
-  outcome: '',
+  overview: 'Redesigned a complex data validation and error-handling experience into a structured, user-friendly flow that helps users quickly understand issues and resolve them with confidence.',
+challenge:
+  'Users struggled to understand system-generated errors due to unclear messaging, lack of structure, and limited visibility into where issues originated, leading to confusion and slower resolution.',
+
+approach:
+  'Introduced a simplified system model, structured error reporting, and clear, plain-language messaging. Designed actionable error states, prioritization through severity and timelines, and collaboration features to support faster resolution.',
+
+outcome:
+  'Transformed a technical error log into a guided resolution experience, enabling users to identify issues faster, take action independently, and complete onboarding with reduced friction.',
 
   sections: [
     {
@@ -131,4 +136,107 @@ export const projects: Project[] = [
     }
   ]
 },  
+
+{
+  id: 'recommendation-strategy-builder',
+  index: '02',
+  title: 'Simplifying a Complex Recommendation Strategy Builder',
+  category: 'Content Design · UX Writing',
+  year: '2025',
+  description:
+    'Redesigned a complex recommendation strategy configuration flow into a clear, guided experience that helps users understand system constraints, make confident decisions, and reduce setup errors.',
+  tags: ['UX Writing', 'Content Design', 'SaaS', 'Complex Systems'],
+  image: '/images/project2/project2_1.jpeg',
+
+  overview:
+    'This project focuses on improving the usability of a recommendation strategy builder used to configure how products are suggested across different channels. The experience involved multiple dependencies between channel types, algorithms, and filters, but lacked clarity—making it difficult for users to understand why options were unavailable or how their selections impacted outcomes.',
+
+  challenge:
+    'Users struggled with hidden system constraints, unclear disabled states, and fragmented feedback. Important decisions—like selecting algorithms or filters—often resulted in confusion because the system did not clearly explain availability, dependencies, or consequences. This led to trial-and-error interactions and increased setup time.',
+
+  approach:
+    'I focused on making system logic visible through clear content and structured feedback. This included improving disabled states with meaningful explanations, clarifying dependencies between selections, and guiding users through complex configurations with contextual messaging. The goal was to replace guesswork with understanding.',
+
+  outcome:
+    'The experience shifted from a trial-and-error configuration flow to a more transparent and guided system. Users can now better understand why options are available or restricted, make informed decisions, and complete setup with greater confidence and fewer errors.',
+
+  sections: [
+    {
+      type: 'text',
+      title: 'Understanding the Complexity',
+      content:
+        'The recommendation builder allows users to configure product suggestions across multiple channels such as web, app, email, and push. Each selection affects what algorithms, filters, and options become available. However, this logic was not clearly communicated, making the system feel unpredictable and difficult to use.'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/project2_1.jpeg',
+      caption:
+        'Initial configuration flow where multiple options are available, but system dependencies are not clearly communicated to the user'
+    },
+
+    {
+      type: 'text',
+      title: 'Making Constraints Visible',
+      content:
+        'A key issue was the use of disabled states without sufficient explanation. Users could see that options were unavailable, but not why. I redesigned system messages to clearly explain the reason behind these restrictions, helping users understand how their current selections affect available options.'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/project2_2.jpeg',
+      caption:
+        'Disabled states supported with clear messaging that explains why certain options are not available based on user selections'
+    },
+
+    {
+      type: 'text',
+      title: 'Clarifying Algorithm Selection',
+      content:
+        'The algorithm selection step introduced further confusion, as not all options were compatible with selected channels. Instead of relying on generic tooltips, I introduced contextual messaging that directly connects system limitations to user choices, making the relationship between inputs and outcomes more explicit.'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/project2_3.jpeg',
+      caption:
+        'Algorithm selection with clearer feedback explaining availability and dependencies, reducing confusion during decision-making'
+    },
+
+    {
+      type: 'text',
+      title: 'Improving Feedback and Validation',
+      content:
+        'Error states and validation feedback were redesigned to be more direct and actionable. Instead of vague prompts, the system now clearly indicates what is required and how to resolve issues, allowing users to move forward without unnecessary friction.'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/project2_4.jpeg',
+      caption:
+        'Validation states that clearly guide users on required actions, reducing ambiguity and preventing setup errors'
+    },
+
+    {
+      type: 'text',
+      title: 'Supporting System Awareness',
+      content:
+        'In cases where configurations were locked due to active usage, I introduced clear informational messaging to explain why edits were restricted. This ensures users understand system behavior and prevents confusion around non-editable states.'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/project2_5.jpeg',
+      caption:
+        'Informational messaging explaining why certain configurations cannot be edited, improving transparency and user trust'
+    },
+
+    {
+      type: 'text',
+      title: 'Impact',
+      content:
+        'By making system logic visible and improving how constraints are communicated, the experience became more predictable and easier to navigate. Users can now understand dependencies, avoid invalid configurations, and complete setup more efficiently with fewer errors.'
+    }
+  ]
+}
 ];

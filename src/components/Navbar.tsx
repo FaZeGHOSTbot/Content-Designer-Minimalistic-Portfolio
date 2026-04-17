@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -12,6 +12,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleBrandClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -46,6 +56,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
         <Link
           to="/"
+          onClick={handleBrandClick}
           className="font-serif text-lg font-medium text-charcoal tracking-wide underline-grow"
         >
           Sridha Saha
