@@ -32,7 +32,7 @@ export const projects: Project[] = [
   index: '01',
   title: 'Designing a Clear Data Error Resolution Experience',
   category: 'Content Design · UX Writing',
-  year: '2024',
+  year: '2025',
   description: 'Transformed a technical and unclear data validation flow into a structured, user-friendly error resolution experience with clear messaging, actionable guidance, and system transparency.',
   tags: ['UX Writing', 'Content Design', 'Data UX', 'Error Handling'],
   image: '/images/onboarding/project1_5.jpeg',
