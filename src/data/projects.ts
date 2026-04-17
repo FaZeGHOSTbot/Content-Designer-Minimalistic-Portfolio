@@ -1,10 +1,12 @@
 export interface Section {
-  type: 'text' | 'image';
+  type: 'text' | 'image' | 'image-slider';
   title?: string;
   content?: string;
   src?: string;
   caption?: string;
+  images?: string[];
   size?: 'small' | 'medium' | 'large';
+  slides?: { src: string; caption?: string }[];
 }
 
 export interface Project {
@@ -140,103 +142,114 @@ outcome:
 {
   id: 'recommendation-strategy-builder',
   index: '02',
-  title: 'Simplifying a Complex Recommendation Strategy Builder',
+  title: 'Designing a Centralized Recommendation Strategy Builder',
   category: 'Content Design · UX Writing',
   year: '2025',
   description:
-    'Redesigned a complex recommendation strategy configuration flow into a clear, guided experience that helps users understand system constraints, make confident decisions, and reduce setup errors.',
+    'Designed a centralized strategy builder from scratch to help users configure and manage recommendation campaigns across channels with clarity, flexibility, and system transparency.',
   tags: ['UX Writing', 'Content Design', 'SaaS', 'Complex Systems'],
   image: '/images/project2/project2_1.jpeg',
 
   overview:
-    'This project focuses on improving the usability of a recommendation strategy builder used to configure how products are suggested across different channels. The experience involved multiple dependencies between channel types, algorithms, and filters, but lacked clarity—making it difficult for users to understand why options were unavailable or how their selections impacted outcomes.',
+    'This project focused on designing a centralized strategy builder that allows users to create and manage recommendation campaigns from a single place. Instead of navigating multiple tools or flows, users can define how recommendations behave across channels like web, app, email, and push within one structured experience.',
 
   challenge:
-    'Users struggled with hidden system constraints, unclear disabled states, and fragmented feedback. Important decisions—like selecting algorithms or filters—often resulted in confusion because the system did not clearly explain availability, dependencies, or consequences. This led to trial-and-error interactions and increased setup time.',
+    'The core challenge was designing for complexity without overwhelming users. The system involves multiple dependencies between channels, algorithms, filters, and constraints. Without clear structure and guidance, this could easily lead to confusion, invalid configurations, and heavy reliance on trial-and-error.',
 
   approach:
-    'I focused on making system logic visible through clear content and structured feedback. This included improving disabled states with meaningful explanations, clarifying dependencies between selections, and guiding users through complex configurations with contextual messaging. The goal was to replace guesswork with understanding.',
+    'I approached this by structuring the experience around clarity and progressive understanding. I focused on making system logic visible, guiding users through decisions with contextual content, and ensuring that every state—default, disabled, or restricted—communicates meaning. The goal was to help users understand not just what to do, but why.',
 
   outcome:
-    'The experience shifted from a trial-and-error configuration flow to a more transparent and guided system. Users can now better understand why options are available or restricted, make informed decisions, and complete setup with greater confidence and fewer errors.',
+    'The result is a structured and scalable strategy builder that brings multiple configuration layers into a single, coherent experience. Users can now create and manage campaigns more efficiently, understand system constraints, and make informed decisions without needing external support.',
 
   sections: [
     {
       type: 'text',
-      title: 'Understanding the Complexity',
+      title: 'Bringing Everything Into One Place',
       content:
-        'The recommendation builder allows users to configure product suggestions across multiple channels such as web, app, email, and push. Each selection affects what algorithms, filters, and options become available. However, this logic was not clearly communicated, making the system feel unpredictable and difficult to use.'
+        'The strategy builder was designed as a centralized space where users can configure all aspects of recommendation campaigns. Instead of switching between different tools or flows, users can define channels, algorithms, filters, and rules within a single interface. This reduces fragmentation and creates a more cohesive experience.'
     },
 
+   {
+  type: 'image-slider',
+  slides: [
     {
-      type: 'image',
-      src: '/images/project2/project2_1.jpeg',
-      caption:
-        'Initial configuration flow where multiple options are available, but system dependencies are not clearly communicated to the user'
+      src: '/images/project2/image1.jpeg',
+      caption: 'Strategy creation flow where users configure channels and page types'
     },
+    {
+      src: '/images/project2/image2.jpeg',
+      caption: 'Exit confirmation modal preventing accidental data loss'
+    },
+    {
+      src: '/images/project2/image3.jpeg',
+      caption: 'Strategy list view with success feedback after creation'
+    }
+  ]
+},
 
     {
       type: 'text',
-      title: 'Making Constraints Visible',
+      title: 'Designing for System Complexity',
       content:
-        'A key issue was the use of disabled states without sufficient explanation. Users could see that options were unavailable, but not why. I redesigned system messages to clearly explain the reason behind these restrictions, helping users understand how their current selections affect available options.'
+        'Each configuration choice affects what options are available next. For example, selected channels determine which algorithms or filters can be applied. To prevent confusion, I structured the content to reflect these dependencies clearly, helping users understand how their decisions shape the system.'
     },
 
     {
       type: 'image',
       src: '/images/project2/project2_2.jpeg',
       caption:
-        'Disabled states supported with clear messaging that explains why certain options are not available based on user selections'
+        'System constraints communicated through contextual messaging, helping users understand why certain options are unavailable'
     },
 
     {
       type: 'text',
-      title: 'Clarifying Algorithm Selection',
+      title: 'Guiding Decision-Making',
       content:
-        'The algorithm selection step introduced further confusion, as not all options were compatible with selected channels. Instead of relying on generic tooltips, I introduced contextual messaging that directly connects system limitations to user choices, making the relationship between inputs and outcomes more explicit.'
+        'Algorithm selection is a key decision point in the flow. I designed the content to clearly communicate what each option represents and when it is applicable. Instead of relying on generic tooltips, messaging is directly tied to user selections, making the system feel more predictable and easier to navigate.'
     },
 
     {
       type: 'image',
       src: '/images/project2/project2_3.jpeg',
       caption:
-        'Algorithm selection with clearer feedback explaining availability and dependencies, reducing confusion during decision-making'
+        'Algorithm selection with contextual guidance that connects user choices to available options'
     },
 
     {
       type: 'text',
-      title: 'Improving Feedback and Validation',
+      title: 'Reducing Errors Through Clear Feedback',
       content:
-        'Error states and validation feedback were redesigned to be more direct and actionable. Instead of vague prompts, the system now clearly indicates what is required and how to resolve issues, allowing users to move forward without unnecessary friction.'
+        'To support smooth progression, validation and feedback were designed to be immediate and actionable. Users are clearly informed about missing inputs or incorrect configurations, along with guidance on how to fix them. This reduces friction and prevents errors early in the process.'
     },
 
     {
       type: 'image',
       src: '/images/project2/project2_4.jpeg',
       caption:
-        'Validation states that clearly guide users on required actions, reducing ambiguity and preventing setup errors'
+        'Clear validation and feedback states that guide users toward completing the configuration correctly'
     },
 
     {
       type: 'text',
-      title: 'Supporting System Awareness',
+      title: 'Communicating System Constraints',
       content:
-        'In cases where configurations were locked due to active usage, I introduced clear informational messaging to explain why edits were restricted. This ensures users understand system behavior and prevents confusion around non-editable states.'
+        'In scenarios where configurations cannot be modified—such as when a strategy is already in use—the system provides clear explanations. This ensures users understand the reason behind restrictions, reducing frustration and building trust in the system.'
     },
 
     {
       type: 'image',
       src: '/images/project2/project2_5.jpeg',
       caption:
-        'Informational messaging explaining why certain configurations cannot be edited, improving transparency and user trust'
+        'Informational messaging that explains why certain configurations are locked or cannot be edited'
     },
 
     {
       type: 'text',
       title: 'Impact',
       content:
-        'By making system logic visible and improving how constraints are communicated, the experience became more predictable and easier to navigate. Users can now understand dependencies, avoid invalid configurations, and complete setup more efficiently with fewer errors.'
+        'By centralizing configuration and making system behavior transparent, the experience enables users to create strategies more efficiently and with greater confidence. The structured flow reduces cognitive load, minimizes errors, and supports scalable campaign management.'
     }
   ]
-}
+},
 ];

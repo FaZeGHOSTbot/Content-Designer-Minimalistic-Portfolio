@@ -2,6 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { projects } from '../data/projects';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 
 const pageVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -174,6 +177,14 @@ export default function CaseStudy() {
       );
     }
 
+    if (section.type === 'image-slider' && section.slides) {
+  return (
+    <ImageSlider
+      key={index}
+      slides={section.slides}
+    />
+  );
+}
     return null;
   })}
 </div>
@@ -253,5 +264,86 @@ function NextProject({ currentId }: { currentId: string }) {
         {nextProject.title} →
       </span>
     </Link>
+  );
+}
+
+function ImageSlider({
+  slides,
+}: {
+  slides: { src: string; caption?: string }[];
+}) {
+  const [current, setCurrent] = useState(0);
+
+  const prev = () =>
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
+  const next = () =>
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+
+  return (
+    <motion.div
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      className="my-12"
+    >
+      <div className="relative w-full flex justify-center overflow-hidden group">
+
+        {/* Smooth animation */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={slides[current].src}
+            src={slides[current].src}
+            className="w-full max-w-5xl rounded-lg object-contain"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          />
+        </AnimatePresence>
+
+        {/* Left */}
+        <button
+          onClick={prev}
+          className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition"
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        {/* Right */}
+        <button
+          onClick={next}
+          className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition"
+        >
+          <ChevronRight size={20} />
+        </button>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {slides.map((_, i) => (
+          <div
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 w-2 rounded-full cursor-pointer transition-all ${
+              i === current ? 'bg-charcoal scale-110' : 'bg-light-grey'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Dynamic caption */}
+      {slides[current].caption && (
+        <motion.p
+          key={slides[current].caption}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-sm text-mid-grey mt-3 text-center"
+        >
+          {slides[current].caption}
+        </motion.p>
+      )}
+    </motion.div>
   );
 }
