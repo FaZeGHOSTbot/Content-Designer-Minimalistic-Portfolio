@@ -144,7 +144,7 @@ outcome:
   index: '02',
   title: 'Designing a Centralized Recommendation Strategy Builder',
   category: 'Content Design · UX Writing',
-  year: '2025',
+  year: '2024',
   description:
     'Designed a centralized strategy builder from scratch to help users configure and manage recommendation campaigns across channels with clarity, flexibility, and system transparency.',
   tags: ['UX Writing', 'Content Design', 'SaaS', 'Complex Systems'],
@@ -172,10 +172,11 @@ outcome:
 
    {
   type: 'image-slider',
+  title: 'End-to-End Strategy Creation Flow',
   slides: [
     {
       src: '/images/project2/image1.jpeg',
-      caption: 'Strategy creation flow where users configure channels and page types'
+      caption: 'Strategy creation flow where users configure channels and page types upon which the selection below differs'
     },
     {
       src: '/images/project2/image2.jpeg',

@@ -91,6 +91,17 @@ export default function Contact() {
                 className="text-mid-grey transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </a>
+            <a
+  href="tel:+918336020118" // 🔁 replace with actual number
+  className="group flex items-center gap-3 font-sans text-base font-light text-charcoal underline-grow"
+  data-hover
+>
+  <span>+91 83360 20118</span>
+  <ArrowUpRight
+    size={16}
+    className="text-mid-grey transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+  />
+</a>
           </motion.div>
         </motion.div>
 

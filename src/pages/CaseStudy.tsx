@@ -182,6 +182,7 @@ export default function CaseStudy() {
     <ImageSlider
       key={index}
       slides={section.slides}
+      title={section.title}
     />
   );
 }
@@ -269,8 +270,10 @@ function NextProject({ currentId }: { currentId: string }) {
 
 function ImageSlider({
   slides,
+  title,
 }: {
   slides: { src: string; caption?: string }[];
+  title?: string;
 }) {
   const [current, setCurrent] = useState(0);
 
@@ -287,6 +290,12 @@ function ImageSlider({
       whileInView="visible"
       className="my-12"
     >
+      {/* 🔥 ADD THIS BLOCK */}
+    {title && (
+      <span className="font-sans text-xs text-mid-grey uppercase block mb-5 tracking-[0.2em]">
+        {title}
+      </span>
+    )}
       <div className="relative w-full flex justify-center overflow-hidden group">
 
         {/* Smooth animation */}
