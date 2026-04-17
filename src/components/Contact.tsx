@@ -67,11 +67,11 @@ export default function Contact() {
             className="flex flex-col sm:flex-row gap-6 sm:gap-12"
           >
             <a
-              href="mailto:hello@sridhasaha.com"
+              href="mailto:sridhasaha98@gmail.com"
               className="group flex items-center gap-3 font-sans text-base font-light text-charcoal underline-grow"
               data-hover
             >
-              <span>hello@sridhasaha.com</span>
+              <span>sridhasaha98@gmail.com</span>
               <ArrowUpRight
                 size={16}
                 className="text-mid-grey transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -79,7 +79,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://linkedin.com/in/sridhasaha"
+              href="https://www.linkedin.com/in/sridha-saha-b92105135/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 font-sans text-base font-light text-charcoal underline-grow"

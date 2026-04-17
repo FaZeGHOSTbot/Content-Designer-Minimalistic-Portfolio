@@ -4,6 +4,7 @@ export interface Section {
   content?: string;
   src?: string;
   caption?: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
 export interface Project {
@@ -27,14 +28,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-  id: 'onboarding-redesign',
+  id: 'user-data-error-experience',
   index: '01',
-  title: 'Making Data Onboarding Understandable',
-  category: 'UX Writing · Data Platform',
+  title: 'Designing a Clear Data Error Resolution Experience',
+  category: 'Content Design · UX Writing',
   year: '2024',
-  description: 'Simplified a complex data ingestion and validation flow into a clear, guided experience that helps users understand system status and take action with confidence.',
-  tags: ['UX Writing', 'Content Design', 'Data Systems'],
-  image: '/images/onboarding/project1_1.png',
+  description: 'Transformed a technical and unclear data validation flow into a structured, user-friendly error resolution experience with clear messaging, actionable guidance, and system transparency.',
+  tags: ['UX Writing', 'Content Design', 'Data UX', 'Error Handling'],
+  image: '/images/onboarding/project1_5.jpeg',
 
   overview: '',
   challenge: '',
@@ -46,108 +47,88 @@ export const projects: Project[] = [
       type: 'text',
       title: 'Overview',
       content:
-        'This product allows users to integrate data from multiple sources—web, app, APIs, external platforms, and CSV uploads. While powerful, the onboarding experience lacked clarity around what the system was doing and what users needed to do next.'
+        'This project focuses on improving how users identify and resolve data errors during onboarding. The system validates incoming data from multiple sources, but the experience lacked clarity, making it difficult for users to understand issues and take action. The goal was to design a clear, guided error resolution experience through better content and structure.'
     },
 
     {
       type: 'image',
-      src: '/images/onboarding/project1_1.png',
-      caption: 'Users connect multiple data sources, but system behavior is not clearly explained'
+      src: '/images/onboarding/project1_5.jpeg',
+      size: 'small',
+      caption: 'Overview page explaining how data is collected, validated, and where errors occur'
     },
 
     {
-      type: 'text',
-      title: 'The Challenge',
-      content:
-        'Users were exposed to backend concepts like events, parameters, and attributes without explanation. As data moved through the system, there was little feedback on its status—whether it was collected, validated, or failing—leading to confusion and drop-offs.'
-    },
+  type: 'text',
+  title: 'Making the System Visible',
+  content:
+    'Users struggled to understand how their data moved through the system and where issues were occurring. I introduced a simplified visual model that breaks down the process into clear stages—data collection, validation, and error reporting. This helps users build a mental model of the system, making it easier to identify where things go wrong and what action is needed.'
+},
+
+{
+  type: 'image',
+  src: '/images/onboarding/project1_7.png',
+  size: 'large',
+  caption: 'A simplified view of the data pipeline showing how inputs are collected, validated, and where errors are identified'
+},
+
+{
+  type: 'text',
+  title: 'Structuring the Error Experience',
+  content:
+    'The error report was redesigned to make issues easier to scan, prioritize, and act on. Errors are grouped and labeled by severity, with clear indicators showing where they originate (web, app, API, or uploads). To support decision-making, the system also provides a timeline of detected errors, helping users understand recency and relevance. This structured approach transforms raw system output into actionable insights, reducing confusion and enabling faster resolution.'
+},
+
+{
+  type: 'image',
+  src: '/images/onboarding/project1_4.jpeg',
+  caption: 'Error report with severity indicators, data source tagging, and a timeline of recently detected issues to support faster prioritization'
+},
+
+{
+  type: 'text',
+  title: 'Content Strategy',
+  content:
+    'I designed error communication to make it clear, actionable, and easy to understand. Instead of exposing raw system language, errors are now explained in plain terms, highlighting what went wrong, why it matters, and how to fix it. Supporting details like affected areas, sample values, and step-by-step guidance help users resolve issues without needing technical support.'
+},
+
+{
+  type: 'image',
+  src: '/images/onboarding/project1_3.jpeg',
+  caption: 'Error details rewritten in plain language, clearly explaining the issue, its impact, and how users can fix it'
+},
 
     {
-      type: 'image',
-      src: '/images/onboarding/project1_2.svg',
-      caption: 'Data flows into the system, but relationships and outcomes are unclear'
-    },
+  type: 'text',
+  title: 'Designing for Action',
+  content:
+    'To support faster resolution, I designed a structured way for users to share error details with their team. The flow includes clear input guidance, validation states, and feedback messages to prevent mistakes and ensure successful sharing. From limiting email inputs to handling edge cases and providing real-time success or error feedback, the experience is designed to be reliable, clear, and easy to act on—even for non-technical users.'
+},
 
-    {
-      type: 'text',
-      title: 'Key Insight',
-      content:
-        'Users don’t need to understand the system architecture—they need to understand what’s happening to their data and what action to take next.'
-    },
+{
+  type: 'image',
+  src: '/images/onboarding/project1_1.jpeg',
+  caption: 'Error sharing flow with input validations, edge-case handling, and real-time feedback to ensure successful collaboration'
+},
+{
+  type: 'text',
+  title: 'Designing for Clarity Beyond the Product',
+  content:
+    'To ensure error details remain clear even outside the platform, I designed a structured email format that translates system data into easy-to-understand information. The email highlights error severity, explains the issue in plain language, and includes relevant data and fix guidance. This allows stakeholders to quickly understand the problem and take action without needing additional context or follow-ups.'
+},
 
-    {
-      type: 'image',
-      src: '/images/onboarding/project1_3.svg',
-      caption: 'System begins validating collected data, but errors are surfaced without clear guidance'
-    },
-
-    {
-      type: 'text',
-      title: 'My Approach',
-      content:
-        'I restructured the onboarding into a clear progression: data collection → validation → resolution. Rewrote microcopy to reflect system states in plain language, introduced visual status indicators (success, error), and added actionable guidance to help users resolve issues quickly.'
-    },
-
-    {
-      type: 'image',
-      src: '/images/onboarding/project1_4.svg',
-      caption: 'Errors are clearly identified and grouped, with guidance on how to fix them'
-    },
-
-    {
-      type: 'image',
-      src: '/images/onboarding/project1_5.svg',
-      caption: 'Clear success states reinforce progress and build user confidence'
-    },
+{
+  type: 'image',
+  src: '/images/onboarding/project1_6.jpeg',
+  size: 'small',
+  caption: 'Structured email format that clearly communicates error details, impact, and resolution guidance for effective collaboration'
+},
 
     {
       type: 'text',
       title: 'Impact',
       content:
-        'The onboarding experience shifted from a technical process to a guided journey. Users could clearly track their data status, resolve issues faster, and complete setup with confidence—reducing friction and improving overall activation.'
+        'The experience shifted from a technical error log to a guided resolution flow. Users can now quickly understand issues, take action without external help, and confidently progress through onboarding. This reduces friction, improves task completion, and creates a more intuitive product experience.'
     }
   ]
-},
-  {
-    id: 'voice-tone-system',
-    index: '02',
-    title: 'Voice & Tone System for Healthcare',
-    category: 'Content Strategy · Healthcare',
-    year: '2024',
-    description: 'Built a comprehensive voice and tone guide that aligned 12 product teams and reduced review cycles by 60%.',
-    tags: ['Content Strategy', 'Design Systems', 'Healthcare'],
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    overview: 'A healthcare platform with 12 product teams was publishing content with wildly inconsistent voice and tone—creating confusion and eroding user trust.',
-    challenge: 'No shared content standards existed. Writers across teams were making independent decisions about language, resulting in a fragmented experience that felt unreliable for patients seeking health information.',
-    approach: 'Audited 4,000+ strings across the product. Identified 8 core voice attributes through stakeholder workshops and user research. Built a living voice and tone guide with contextual examples, decision trees, and tone spectrum documentation.',
-    outcome: 'Reduced content review cycles by 60%. All 12 teams adopted the guide within 3 months. New team member onboarding time for content standards cut from 2 weeks to 3 days.',
-  },
-  {
-    id: 'microcopy-conversion',
-    index: '03',
-    title: 'Microcopy That Converts',
-    category: 'UX Writing · E-commerce',
-    year: '2023',
-    description: 'A/B tested 200+ microcopy variations to discover the language patterns that turn hesitation into action.',
-    tags: ['UX Writing', 'Copywriting', 'E-commerce'],
-    image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
-    overview: 'An e-commerce platform noticed that conversion rates stalled at key decision points—checkout, cart abandonment, and empty states. The culprit was uninspired, generic microcopy.',
-    challenge: 'Buttons said "Submit." Error messages said "Invalid input." Empty states said nothing meaningful. Every small word was a missed opportunity to move users forward.',
-    approach: 'Mapped every friction point in the purchase journey. Developed a hypothesis framework—each copy change was anchored to a specific user emotion or cognitive barrier. Ran 200+ targeted A/B tests over 6 months.',
-    outcome: 'Cart-to-checkout conversion increased by 23%. Checkout completion rate improved by 17%. Error recovery rate (users who fixed an error and completed the flow) went from 34% to 61%.',
-  },
-  {
-    id: 'ia-overhaul',
-    index: '04',
-    title: 'Information Architecture Overhaul',
-    category: 'Content Design · SaaS',
-    year: '2023',
-    description: 'Restructured a 5,000-page knowledge base into a navigable system that users actually want to use.',
-    tags: ['Content Design', 'IA', 'SaaS'],
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    overview: 'A B2B SaaS company had accumulated 5,000+ help articles over 8 years. Users consistently reported that they could not find what they needed, leading to a 40% increase in support tickets.',
-    challenge: 'The knowledge base had grown organically with no taxonomy or content strategy. Articles were duplicated, outdated, or buried under misleading titles. Search was nearly useless.',
-    approach: 'Conducted tree testing with 200 users to understand mental models. Audited all content and reduced the article count to 1,200 through consolidation and deletion. Built a three-tier taxonomy from scratch, rewrote titles using user language, and introduced progressive disclosure in article structure.',
-    outcome: 'Support ticket volume fell by 35% in the first quarter. Self-serve resolution rate improved from 42% to 78%. Average time-on-page increased by 2.3 minutes, indicating users were actually reading.',
-  },
+},  
 ];

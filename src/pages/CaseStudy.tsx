@@ -156,7 +156,12 @@ export default function CaseStudy() {
   <img
     src={section.src}
     alt={section.caption}
-    className="w-full max-w-5xl h-auto object-contain rounded-lg"
+    className={`
+    h-auto object-contain rounded-lg
+    ${section.size === 'small' ? 'w-[60%]' : ''}
+    ${section.size === 'medium' ? 'w-[75%]' : ''}
+    ${section.size === 'large' || !section.size ? 'w-full max-w-5xl' : ''}
+  `}
   />
 </div>
 
