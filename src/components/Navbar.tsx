@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Resume', href: '/resume.pdf', external: true },
 ];
 
 export default function Navbar() {
@@ -63,19 +64,32 @@ export default function Navbar() {
         </Link>
 
         <ul className="flex items-center gap-8 md:gap-10">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <button
-                onClick={() => handleNavClick(link.href)}
-                className="font-sans text-sm font-light text-charcoal tracking-widest uppercase underline-grow"
-                style={{ letterSpacing: '0.15em' }}
-                data-hover
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+  {navLinks.map((link) => (
+    <li key={link.label}>
+      {link.external ? (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans text-sm font-light text-charcoal tracking-widest uppercase underline-grow"
+          style={{ letterSpacing: '0.15em' }}
+          data-hover
+        >
+          {link.label}
+        </a>
+      ) : (
+        <button
+          onClick={() => handleNavClick(link.href)}
+          className="font-sans text-sm font-light text-charcoal tracking-widest uppercase underline-grow"
+          style={{ letterSpacing: '0.15em' }}
+          data-hover
+        >
+          {link.label}
+        </button>
+      )}
+    </li>
+  ))}
+</ul>
       </nav>
     </motion.header>
   );
