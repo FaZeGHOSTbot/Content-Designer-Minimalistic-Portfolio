@@ -66,7 +66,7 @@ export default function About() {
                 variants={paragraphVariants}
                 className="font-sans text-base font-light text-mid-grey leading-[1.8] mb-6"
               >
-I’m a content designer with 5+ years of experience shaping how digital products speak to people. I believe the best UX writing is invisible—it guides, reassures, and empowers users without ever getting in the way.
+I’m a content designer with 7+ years of experience shaping how digital products speak to people. I believe the best UX writing is invisible—it guides, reassures, and empowers users without ever getting in the way.
               </motion.p>
 
               <motion.p

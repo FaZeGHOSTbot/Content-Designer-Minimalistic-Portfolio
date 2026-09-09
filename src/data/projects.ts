@@ -267,23 +267,23 @@ export const projects: Project[] = [
   image: '/images/project3/welcome-empty.png',
 
   overview:
-    'Before this, a new customer\'s onboarding plan came out of a series of offline calls and emails with a CSM, TAM, or onboarding manager: what does your business do, what do you want to achieve, which of our features actually apply to you. I designed a guided flow inside the Onboarding Center that asks two questions, industry and objectives, and turns the answers into a short, relevant list of use cases the customer can select, prioritize, and assign themselves, with no meeting required.',
+    'This was, underneath everything, a writing problem. A CSM used to sit on a call and translate our product into a customer\'s business in real time: turning internal feature names into plain language, explaining why a field mattered, answering "does this apply to me" on the spot. To make this self-serve, every one of those spoken answers had to become written content: a question, a label, an empty state, a one-line explanation, that could do the same job with no one in the room.',
 
   challenge:
-    'Onboarding a new account meant scheduling time with a CSM or TAM just to figure out which of dozens of use cases were even relevant to that customer\'s industry and goals. That back-and-forth was slow for the customer and expensive for the frontline team, who were repeating the same discovery conversation on every account. Skip the conversation, though, and customers were left facing a full catalog with no idea where to start.',
+    'Customers had never spoken to Insider before and were now expected to make product decisions alone, using internal names like "Architect" or "Eureka," trigger logic written for engineers, and a use case catalog with entries just labeled "Use Case Name" with no description. Written badly, this content would either overwhelm the customer with jargon they had to ask someone to translate, defeating the point, or under-explain and leave them stuck exactly where a CSM used to step in.',
 
   approach:
-    'I designed a flow that front-loads the discovery questions themselves: industry first, then business objectives, each on its own screen so the customer never has to make a strategic choice and an operational one at the same time. Those two answers drive a short, personalized use case list instead of a full catalog. From there, selection is separated from definition, so picking a use case is a low-commitment tick, and turning it into an actual plan (priority, channel, owner, due date) happens as a separate step. The result is a plan the customer builds and owns without needing a CSM on the call.',
+    'I rewrote the product\'s internal vocabulary into the customer\'s own words at every step, instead of asking the customer to learn ours. Objectives are written as business outcomes ("Acquire New Customers"), not feature names. Each use case has a plain-language description written like a person would say it out loud, not a system trigger. Every empty state, locked field, and required-data callout says why in one sentence, so the customer never has to guess or escalate.',
 
   outcome:
-    'Customers can now go from "what does your product even do for a business like mine" to a prioritized, assigned onboarding plan on their own. That means fewer offline discovery calls for CSMs, TAMs, and onboarding managers, and a plan that is actually personalized to the account instead of a generic checklist, which is also why customers stick with it: it is a plan they built, not one that was handed to them.',
+    'Customers can now go from "what does your product even do for a business like mine" to a prioritized, assigned onboarding plan, reading and writing their way through it alone. That is a direct result of the words on screen doing the job a CSM used to do out loud: fewer offline discovery calls for CSMs, TAMs, and onboarding managers, and a plan the customer understood well enough to build themselves, which is also why they stick with it.',
 
   sections: [
     {
       type: 'text',
-      title: 'Starting With Context, Not a Catalog',
+      title: 'Writing the First Sentence Someone Reads',
       content:
-        'The entry point to the whole flow collects the two inputs that drive everything after it: industry and business objectives. Before asking for either, the welcome screen shows the customer what they are already subscribed to, so the plan stays inside what they can actually run. There is exactly one call to action here, no form, because onboarding usually fails at the first screen.'
+        'The welcome headline and subhead had to do a lot in three sentences: say what this tool is for, name who else is involved ("Collaboration between Marketing, CRM, Product Management, and IT is essential"), and set the expectation that this takes real cross-functional buy-in, not just five idle minutes. The single button is labeled "Select Industry," the literal next action, not a vague "Get Started," so the customer never has to wonder what happens when they click it.'
     },
     {
       type: 'image',
@@ -292,9 +292,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'Making the Choice Reversible and Visible',
+      title: 'Writing a Button That Sounds Like a Person',
       content:
-        'Once the customer answers both questions, the same welcome screen returns as a summary showing their industry and objectives as removable chips, with the primary action changing to "Let\'s Continue." Reusing one screen for both states, instead of building a separate confirmation page, gives the customer a visible checkpoint of what their recommendations will be based on, and makes the flow resumable: a returning customer sees exactly where they left off instead of being asked the same questions twice.'
+        'Once industry and objectives are set, the same screen returns with the button copy changed from "Select Industry" to "Let\'s Continue," a small, deliberate shift in voice. "Let\'s" makes it collaborative, like the product and the customer are building the plan together, which matters here specifically because everything from this point on was previously a conversation with a human, not a form.'
     },
     {
       type: 'image',
@@ -303,25 +303,31 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'One Decision Per Screen',
+      title: 'Removing the Fear of Getting It Wrong',
       content:
-        'Industry is asked for first and alone, because it is the strongest single predictor of which use cases will matter, and one decision per screen keeps the answer accurate. Objectives come next as multi-select, since real businesses pursue several goals at once, written in outcome language the customer already uses rather than in our product or feature language.'
+        'The helper text under "Select your Industry" does two jobs in one sentence: it explains why we\'re asking ("so we can tailor features, recommendations and more to your needs"), and it removes the pressure of choosing wrong with four words most forms leave out: "you can update this anytime." That line exists because a customer stuck on this screen too long is a customer who\'d normally have just asked their CSM instead of guessing.'
     },
     {
       type: 'image',
       src: '/images/project3/select-industry.png',
-      caption: 'Industry selection: a single decision, explicitly reversible, so customers do not fear "locking in" the wrong answer'
+      caption: 'The helper text explains the "why" and explicitly removes the fear of picking the wrong industry'
+    },
+    {
+      type: 'text',
+      title: 'Naming Objectives the Way Customers Say Them',
+      content:
+        'Every objective in this list, "Acquire New Customers," "Drive First Purchase," "Increase Brand Loyalty," is written as a business result a marketer would say in a meeting, not a feature we\'d name internally. That word choice is what makes the next screen\'s personalization feel earned instead of arbitrary: the recommendations are visibly based on language the customer picked themselves, not on a system they don\'t recognize.'
     },
     {
       type: 'image',
       src: '/images/project3/define-objectives.png',
-      caption: 'Objectives selection: multi-select checkboxes in outcome language, used as the filter for the next screen'
+      caption: 'Objectives written in outcome language a marketer would use, not internal feature names'
     },
     {
       type: 'text',
-      title: 'A Personalized List, Not a Full Catalog',
+      title: 'Writing a Two-Word Verdict',
       content:
-        'Using industry and objectives from the first two screens, customers see a short list of suggested use cases, each with a channel preview and an effort/impact label like Top Selected, Low Effort, or Quick Win, so they are choosing based on seeing the result, not reading a name. The list stays split into Suggested and More, with the applied filters visible as removable chips, so the personalization is visible and trustworthy rather than a black box.'
+        'Each recommended use case carries a tiny label, "Top Selected," "Low Effort," or "Quick Win," that has to communicate a value judgment in two words with no room for a sentence. I chose "Quick Win" over something like "Easy" deliberately: "Easy" describes the work, "Quick Win" describes the payoff, and a customer scanning a list of six cards is deciding based on payoff, not effort. That one-word difference is the whole reason the label exists.'
     },
     {
       type: 'image',
@@ -330,9 +336,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'Surfacing the Real Cost Before Committing',
+      title: 'Rewriting System Logic as a Sentence a Person Would Say',
       content:
-        'Clicking a use case opens a drawer with the full story: what it solves, target segment, recommended channels, and the user data it actually needs. Showing data requirements at selection time, not after, is deliberate: it is the honest cost of the use case, and surfacing it here prevents the plan from being approved and then getting stuck later during integration.'
+        'The "Use Case Description" for Cart Abandonment could have stayed what it was internally, a trigger definition: session reached checkout, no purchase event within X hours. Instead it reads: "Travelers often select a flight but leave without paying. They may be comparing prices or got distracted. If you don\'t remind them quickly, they might forget or book elsewhere." That\'s a rewrite from system logic into a story a non-technical marketer reads once and immediately recognizes as their own customer, which is the actual test a plain-language rewrite has to pass.'
     },
     {
       type: 'image',
@@ -341,9 +347,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'Letting Customers Add Their Own',
+      title: 'Using the Same Words Everywhere',
       content:
-        'No recommendation set covers every business. If nothing in the list matches, customers can create their own use case in a short form that mirrors the same fields as the suggested ones, so custom entries sit in the same table, get the same priority and assignee treatment later, and the plan stays complete instead of half-tracked in a spreadsheet nobody else sees.'
+        'When a customer creates their own use case, the form asks for a "Use Case Name" and "Use Case Description," the exact same labels used on every recommended use case elsewhere in the flow. That repetition is intentional content-system discipline: if a custom entry used different field names than a suggested one, it would read as a second-class feature instead of an equal option, even though functionally it is treated identically.'
     },
     {
       type: 'image',
@@ -352,9 +358,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'Turning a Selection Into an Owned Plan',
+      title: 'Writing an Empty State That Tells You What to Do',
       content:
-        'Every use case the customer picked lands here undefined. Two stacked tables make progress physically visible, pending on top, defined below, so the admin task feels like it has a finish line instead of an open-ended chore. The empty state names the next action directly instead of just saying there is no data.'
+        'The empty state under "Defined Use Cases" doesn\'t just say there\'s no data, it reads: "You haven\'t planned any use cases yet. Start including them in your use case plan by defining one from the list above." That\'s three jobs in two sentences: name the current state plainly, remove any implication of error, and point at the exact action ("from the list above") instead of leaving the customer to figure out where "defining one" even happens.'
     },
     {
       type: 'image',
@@ -363,9 +369,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'Making Ownership Optional, Not Blocking',
+      title: 'Writing "(Optional)" Directly Into the Label',
       content:
-        'Defining a use case means setting channels, priority, an optional assignee, an optional due date, and a free-text note. Only channels and priority are required, so a customer planning alone is never blocked, while a team that wants accountability can add it in the same place. The note field exists because real plans always carry a condition a structured field would not capture, like launching alongside another campaign.'
+        'Assignee, Due Date, and Additional Note are all labeled with "(Optional)" appended right onto the field name itself, rather than a legend or asterisk system explained somewhere else on the page. It\'s a small choice, but it means a customer scanning quickly never has to look anywhere but the label itself to know whether they\'re allowed to skip it, which matters a lot for someone planning this alone with no one to ask.'
     },
     {
       type: 'image',
@@ -374,9 +380,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'The Plan the Customer Actually Takes Away',
+      title: 'Grouping Labels That Read Like Headers, Not Data',
       content:
-        'Defined use cases move into a table grouped by priority, with channel, assignee, due date, and notes visible per row, and a Share button, because this plan is the artifact the customer takes to their own team and to their Insider contact. This is the output of the whole flow, and it replaces what used to be a summary a CSM would type up after a call.'
+        'The finished plan is grouped under "High," "Medium," and "Low" priority, printed as section headers with a count ("4 Items") rather than buried as a column value in each row. Written this way, a customer or their manager can read the plan top to bottom like a document with a clear structure, instead of scanning a flat table hunting for which rows matter most.'
     },
     {
       type: 'image',
@@ -385,9 +391,9 @@ export const projects: Project[] = [
     },
     {
       type: 'text',
-      title: 'A Hand-Off Document, Not Just a Record',
+      title: 'Asking the Question Instead of Labeling the Field',
       content:
-        'Opening a defined use case shows the strategy (why, for whom) and the operational requirements (which data, which channel setup) together, because the person picking up the task was usually not the person who planned it. Listing the remaining channel setup requirements here connects the plan back to what still has to be configured before the use case can go live.'
+        'The description field inside a defined use case is headed "What\'s This Use Case Solving?" rather than the generic "Description" used everywhere else in most tools. Phrasing it as a question a person would actually ask matters here specifically, because the person opening this drawer is often not the one who planned it, and a question invites them to read the answer rather than skim past a label they\'ve seen a hundred times.'
     },
     {
       type: 'image',
@@ -398,7 +404,7 @@ export const projects: Project[] = [
       type: 'text',
       title: 'Impact',
       content:
-        'What used to require a discovery call and a follow-up summary from a CSM or TAM now happens inside the product itself. Customers get a plan personalized to their actual industry and goals, frontline teams spend less time on repetitive discovery conversations, and the plan that comes out the other end is one the customer built and can act on immediately, not one they have to wait for someone else to send over.'
+        'What used to require a CSM or TAM translating the product out loud now happens through the words on screen: outcome-language objectives, plain-English use case descriptions, empty states that name the next action, and field labels that never change meaning between screens. Customers get a plan personalized to their actual industry and goals, frontline teams spend less time on repetitive discovery conversations, and the plan that comes out the other end is one the customer read, understood, and built themselves, not one they had to wait for someone else to explain.'
     }
   ]
 },
