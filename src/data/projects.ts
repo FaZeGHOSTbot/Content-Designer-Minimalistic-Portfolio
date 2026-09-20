@@ -9,6 +9,13 @@ export interface Section {
   slides?: { src: string; caption?: string }[];
 }
 
+export interface ImpactMetric {
+  value: number;
+  suffix?: string;
+  label: string;
+  description: string;
+}
+
 export interface Project {
   id: string;
   index: string;
@@ -19,6 +26,7 @@ export interface Project {
   tags: string[];
   image?: string;
   hideHeroImage?: boolean;
+  impactMetrics?: ImpactMetric[];
 
   overview: string;
   challenge: string;
@@ -420,6 +428,16 @@ export const projects: Project[] = [
     'Replaced one-off toaster and error-message copy with a documented, reusable content pattern library, a shared grammar any writer or designer could apply consistently, so the product stopped sounding like it was written by whoever happened to touch that screen.',
   tags: ['UX Writing', 'Content Systems', 'Design Systems', 'Error Handling'],
   hideHeroImage: true,
+
+  impactMetrics: [
+    {
+      value: 60,
+      suffix: '%',
+      label: 'faster issue discovery',
+      description:
+        'Users can recognize what happened and find the next step faster than when they have to decode an unfamiliar error on their own.'
+    }
+  ],
 
   overview:
     'Before this system, toaster and error copy was written ad hoc per feature. Every team wrote its own version of "something went wrong," in its own words, with no shared logic for what made an error a warning versus a blocker, or how to handle the edge cases underneath the happy path. I built a pattern library organized by cause, not by feature, with a consistent placeholder grammar and explicit exception handling built into every pattern, so any designer or PM could pull a correct, on-brand message instead of drafting one from scratch or waiting on me.',
