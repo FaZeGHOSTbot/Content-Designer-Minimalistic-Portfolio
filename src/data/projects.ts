@@ -1,5 +1,5 @@
 export interface Section {
-  type: 'text' | 'image' | 'image-slider' | 'heading';
+  type: 'text' | 'image' | 'image-slider';
   title?: string;
   content?: string;
   src?: string;
@@ -7,13 +7,6 @@ export interface Section {
   images?: string[];
   size?: 'small' | 'medium' | 'large';
   slides?: { src: string; caption?: string }[];
-}
-
-export interface ImpactMetric {
-  value: number;
-  suffix?: string;
-  label: string;
-  description: string;
 }
 
 export interface Project {
@@ -25,14 +18,11 @@ export interface Project {
   description: string;
   tags: string[];
   image: string;
-  hideHeroImage?: boolean;
 
   overview: string;
   challenge: string;
   approach: string;
   outcome: string;
-
-  impactMetrics?: ImpactMetric[];
 
   // ✅ NEW
   sections?: Section[];
@@ -428,18 +418,7 @@ export const projects: Project[] = [
   description:
     'Replaced one-off toaster and error-message copy with a documented, reusable content pattern library, a shared grammar any writer or designer could apply consistently, so the product stopped sounding like it was written by whoever happened to touch that screen.',
   tags: ['UX Writing', 'Content Systems', 'Design Systems', 'Error Handling'],
-  image: '/images/project4/action-completed.png',
-  hideHeroImage: true,
-
-  impactMetrics: [
-    {
-      value: 60,
-      suffix: '%',
-      label: 'faster issue discovery',
-      description:
-        'Users can recognize what happened and find the next step faster than when they have to decode an unfamiliar error on their own.'
-    }
-  ],
+  image: '/images/project4/toaster-grid.png',
 
   overview:
     'Before this system, toaster and error copy was written ad hoc per feature. Every team wrote its own version of "something went wrong," in its own words, with no shared logic for what made an error a warning versus a blocker, or how to handle the edge cases underneath the happy path. I built a pattern library organized by cause, not by feature, with a consistent placeholder grammar and explicit exception handling built into every pattern, so any designer or PM could pull a correct, on-brand message instead of drafting one from scratch or waiting on me.',
@@ -455,14 +434,15 @@ export const projects: Project[] = [
 
   sections: [
     {
-      type: 'heading',
-      title: 'Toaster'
-    },
-    {
       type: 'text',
       title: 'The Base Unit: A Toaster With Rules',
       content:
         'Every pattern in this system ultimately renders as a toaster, so I started by defining the component itself: four semantic types (info, warning, error, success), each available with no action, one link action, or two link actions. Fixing this grid first meant every pattern built on top of it inherited the same visual and structural vocabulary, so a "warning" never accidentally looked or read like an "error" two screens later.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/toaster-grid.png',
+      caption: 'The base toaster component: four semantic types across three action-complexity levels, the shared building block every pattern below is written for'
     },
     {
       type: 'text',
@@ -515,10 +495,6 @@ export const projects: Project[] = [
       type: 'image',
       src: '/images/project4/action-processing.png',
       caption: 'Action Processing: separate short-duration and long-duration variants, so async actions do not borrow language that overpromises or underexplains the wait'
-    },
-    {
-      type: 'heading',
-      title: 'Validation Messages'
     },
     {
       type: 'text',
