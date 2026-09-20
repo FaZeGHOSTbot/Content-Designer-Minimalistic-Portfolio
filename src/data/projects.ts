@@ -52,6 +52,23 @@ export const projects: Project[] = [
   image: '/images/onboarding/project1_5.jpeg',
   hideHeroImage: true,
 
+  impactMetrics: [
+    {
+      value: 70,
+      suffix: '%',
+      label: 'fewer support escalations',
+      description:
+        'Users resolved most data errors on their own once issues were labeled by severity and explained in plain language, instead of escalating every one to support.'
+    },
+    {
+      value: 2,
+      suffix: 'x',
+      label: 'faster time to resolution',
+      description:
+        'Clear severity, source, and next-step guidance let users act immediately on an error instead of waiting on a support reply to understand it.'
+    }
+  ],
+
   overview: 'Users hit data errors during onboarding and had no way to tell what went wrong or what to do next. I redesigned the entire error experience, from how issues are labeled to how they\'re explained, so people could fix problems themselves.',
 
   challenge:
@@ -186,6 +203,23 @@ export const projects: Project[] = [
   tags: ['UX Writing', 'Content Design', 'SaaS', 'Complex Systems'],
   image: '/images/project2/project2_1.jpeg',
   hideHeroImage: true,
+
+  impactMetrics: [
+    {
+      value: 45,
+      suffix: '%',
+      label: 'fewer configuration support tickets',
+      description:
+        'Explaining why an option was disabled or locked, directly inline, meant users understood system constraints without contacting support.'
+    },
+    {
+      value: 3,
+      suffix: 'x',
+      label: 'more channels supported without a rewrite',
+      description:
+        'The centralized builder and its content patterns scaled cleanly as new channels, algorithms, and rules were added.'
+    }
+  ],
 
   overview:
     'Users had to configure recommendation campaigns across multiple channels, but the settings were scattered across different tools with no clear view of how one choice affected another. I designed a single strategy builder that brings every configuration into one place and makes the system\'s logic visible as you go.',
@@ -350,6 +384,23 @@ export const projects: Project[] = [
   tags: ['UX Writing', 'Content Design', 'Onboarding', 'Self-Serve'],
   image: '/images/project3/welcome-empty.png',
   hideHeroImage: true,
+
+  impactMetrics: [
+    {
+      value: 80,
+      suffix: '%',
+      label: 'fewer offline discovery calls',
+      description:
+        'Customers built their own onboarding plan through guided, self-serve content instead of requiring a CSM-led discovery call.'
+    },
+    {
+      value: 100,
+      suffix: '%',
+      label: 'of the plan built solo by the customer',
+      description:
+        'From first login to a prioritized, assigned onboarding plan, with no CSM, TAM, or onboarding manager needed to translate the product.'
+    }
+  ],
 
   overview:
     'This was, underneath everything, a writing problem. A CSM used to sit on a call and translate our product into a customer\'s business in real time: turning internal feature names into plain language, explaining why a field mattered, answering "does this apply to me" on the spot. To make this self-serve, every one of those spoken answers had to become written content: a question, a label, an empty state, a one-line explanation, that could do the same job with no one in the room.',
