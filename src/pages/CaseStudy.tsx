@@ -121,6 +121,35 @@ export default function CaseStudy() {
     </p>
   </motion.div>
 
+      {project.impactMetrics && project.impactMetrics.length > 0 && (
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="mt-16 pt-12 border-t border-light-grey"
+        >
+          <span className="font-sans text-xs text-mid-grey uppercase block mb-8 tracking-[0.2em]">
+            Impact in numbers
+          </span>
+          <div className="grid gap-8 sm:grid-cols-3">
+            {project.impactMetrics.map((metric) => (
+              <div key={`${metric.value}-${metric.label}`}>
+                <p className="font-serif text-4xl md:text-5xl font-medium text-charcoal mb-3">
+                  {metric.value}{metric.suffix}
+                </p>
+                <p className="font-sans text-sm text-charcoal mb-2">
+                  {metric.label}
+                </p>
+                <p className="font-sans text-sm font-light text-mid-grey leading-[1.7]">
+                  {metric.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
   {/* NEW dynamic sections */}
   {project.sections?.map((section, index) => {
     if (section.type === 'text') {

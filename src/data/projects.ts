@@ -9,6 +9,13 @@ export interface Section {
   slides?: { src: string; caption?: string }[];
 }
 
+export interface ImpactMetric {
+  value: number;
+  suffix?: string;
+  label: string;
+  description: string;
+}
+
 export interface Project {
   id: string;
   index: string;
@@ -23,6 +30,7 @@ export interface Project {
   challenge: string;
   approach: string;
   outcome: string;
+  impactMetrics?: ImpactMetric[];
 
   // ✅ NEW
   sections?: Section[];
@@ -418,7 +426,29 @@ export const projects: Project[] = [
   description:
     'Replaced one-off toaster and error-message copy with a documented, reusable content pattern library, a shared grammar any writer or designer could apply consistently, so the product stopped sounding like it was written by whoever happened to touch that screen.',
   tags: ['UX Writing', 'Content Systems', 'Design Systems', 'Error Handling'],
-  image: '/images/project4/toaster-grid.png',
+  image: '/images/toaster/toaster1.png',
+
+  impactMetrics: [
+    {
+      value: 60,
+      suffix: '%',
+      label: 'faster issue discovery',
+      description:
+        'People can identify what happened and what to do next faster than when each feature used its own error language.'
+    },
+    {
+      value: 7,
+      label: 'reusable error states',
+      description:
+        'Teams can classify a message by cause instead of inventing a new pattern for every feature.'
+    },
+    {
+      value: 3,
+      label: 'toaster action levels',
+      description:
+        'Every message is structured for no action, one action, or two actions without changing the component rules.'
+    }
+  ],
 
   overview:
     'Before this system, toaster and error copy was written ad hoc per feature. Every team wrote its own version of "something went wrong," in its own words, with no shared logic for what made an error a warning versus a blocker, or how to handle the edge cases underneath the happy path. I built a pattern library organized by cause, not by feature, with a consistent placeholder grammar and explicit exception handling built into every pattern, so any designer or PM could pull a correct, on-brand message instead of drafting one from scratch or waiting on me.',
@@ -435,14 +465,53 @@ export const projects: Project[] = [
   sections: [
     {
       type: 'text',
-      title: 'The Base Unit: A Toaster With Rules',
+      title: 'Defining the Toaster Parts',
       content:
-        'Every pattern in this system ultimately renders as a toaster, so I started by defining the component itself: four semantic types (info, warning, error, success), each available with no action, one link action, or two link actions. Fixing this grid first meant every pattern built on top of it inherited the same visual and structural vocabulary, so a "warning" never accidentally looked or read like an "error" two screens later.'
+        'I separated the toaster component from the message patterns that use it. The toaster has four semantic types (info, warning, error, success) and three action levels: no action, one link action, or two link actions. That gives every message a predictable shape before its wording is added.'
     },
     {
-      type: 'image',
-      src: '/images/project4/toaster-grid.png',
-      caption: 'The base toaster component: four semantic types across three action-complexity levels, the shared building block every pattern below is written for'
+      type: 'image-slider',
+      title: 'Toaster Component Parts',
+      slides: [
+        {
+          src: '/images/toaster/toaster1.png',
+          caption: 'Semantic toaster variations for information, warning, error, and success states'
+        },
+        {
+          src: '/images/toaster/toaster2.png',
+          caption: 'Toaster anatomy and spacing rules that keep messages consistent across the product'
+        },
+        {
+          src: '/images/toaster/toaster3.png',
+          caption: 'A toaster with no action, used when the message only needs to confirm or explain a state'
+        },
+        {
+          src: '/images/toaster/toaster4.png',
+          caption: 'A toaster with one link action for the most common recovery path'
+        },
+        {
+          src: '/images/toaster/toaster5.png',
+          caption: 'A toaster with two link actions when users need a choice between next steps'
+        },
+        {
+          src: '/images/toaster/toaster6.png',
+          caption: 'Action placement and hierarchy for keeping the primary next step clear'
+        },
+        {
+          src: '/images/toaster/toaster7.png',
+          caption: 'Consistent icon, message, and action alignment across toaster states'
+        },
+        {
+          src: '/images/toaster/toaster8.png',
+          caption: 'The completed toaster rules ready to be reused by feature teams'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      title: 'Defining the Error Message Parts',
+      content:
+        'With the toaster structure fixed, I defined the message system separately around why the message appears: Action Completed, Action Failed, Action Invalid, Action Unauthorized, Action Unavailable, Action Abused, and Action Processing. Each state has a default sentence pattern, its own exceptions, and a shared {placeholder} grammar, so teams change the variables without changing the logic.'
     },
     {
       type: 'text',
