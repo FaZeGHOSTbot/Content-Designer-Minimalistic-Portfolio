@@ -271,13 +271,6 @@ export const projects: Project[] = [
 },
 
 {
-  type: 'image',
-  src: '/images/project2/22.png',
-  caption:
-    'Strategy listing page designed as a quick reference, surfacing status, method, algorithms, and supported channels so users only need to open a strategy when they need to edit it.'
-},
-
-{
   type: 'text',
   title: 'Using Status Labels Without Creating Confusion',
   content:
@@ -306,22 +299,24 @@ export const projects: Project[] = [
     },
 
     {
-      type: 'image-slider',
-      title: 'How One Selection Cascades Through the Builder',
-      slides: [
-        {
-          src: '/images/project2/image-4.png',
-          caption: 'Starting point: an existing strategy with App Smart Recommender as the channel and Recently Viewed as the algorithm'
-        },
-        {
-          src: '/images/project2/image-5.png',
-          caption: 'Switching the channel to Web Smart Recommender immediately flags the algorithm as incompatible, with guidance to pick a different option'
-        },
-        {
-          src: '/images/project2/image-6.png',
-          caption: 'The same conflict messaging reappears wherever the channel change breaks a downstream setting, including saved filter conditions'
-        }
-      ]
+      type: 'image',
+      src: '/images/project2/image-4.png',
+      caption:
+        'Starting point: an existing strategy with App Smart Recommender as the channel and Recently Viewed as the algorithm'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/image-5.png',
+      caption:
+        'Switching the channel to Web Smart Recommender immediately flags the algorithm as incompatible, with guidance to pick a different option'
+    },
+
+    {
+      type: 'image',
+      src: '/images/project2/image-6.png',
+      caption:
+        'The same conflict messaging reappears wherever the channel change breaks a downstream setting, including saved filter conditions'
     },
 
     {
@@ -332,13 +327,6 @@ export const projects: Project[] = [
     },
 
     {
-      type: 'image',
-      src: '/images/project2/project2_3.jpeg',
-      caption:
-        'Algorithm selection with contextual guidance that connects user choices to available options'
-    },
-
-    {
       type: 'text',
       title: 'Catching Mistakes Before They Happen',
       content:
@@ -346,24 +334,10 @@ export const projects: Project[] = [
     },
 
     {
-      type: 'image',
-      src: '/images/project2/project2_4.jpeg',
-      caption:
-        'Clear validation and feedback states that guide users toward completing the configuration correctly'
-    },
-
-    {
       type: 'text',
       title: 'Explaining Why Something Is Locked',
       content:
         'In scenarios where configurations cannot be modified, such as when a strategy is already in use, the system provides clear explanations. This ensures users understand the reason behind restrictions, reducing frustration and building trust in the system.'
-    },
-
-    {
-      type: 'image',
-      src: '/images/project2/project2_5.jpeg',
-      caption:
-        'Informational messaging that explains why certain configurations are locked or cannot be edited'
     },
 
     {
