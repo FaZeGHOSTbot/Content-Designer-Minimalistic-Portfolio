@@ -50,6 +50,7 @@ export const projects: Project[] = [
   description: 'Turned a confusing wall of system errors into a guided flow where users could see what broke, why it mattered, and how to fix it, without calling support.',
   tags: ['UX Writing', 'Content Design', 'Data UX', 'Error Handling'],
   image: '/images/onboarding/project1_5.jpeg',
+  hideHeroImage: true,
 
   overview: 'Users hit data errors during onboarding and had no way to tell what went wrong or what to do next. I redesigned the entire error experience, from how issues are labeled to how they\'re explained, so people could fix problems themselves.',
 
@@ -184,6 +185,7 @@ export const projects: Project[] = [
     'Built a single place for users to configure recommendation campaigns across web, app, email, and push, instead of switching between disconnected tools and guessing which settings actually worked together.',
   tags: ['UX Writing', 'Content Design', 'SaaS', 'Complex Systems'],
   image: '/images/project2/project2_1.jpeg',
+  hideHeroImage: true,
 
   overview:
     'Users had to configure recommendation campaigns across multiple channels, but the settings were scattered across different tools with no clear view of how one choice affected another. I designed a single strategy builder that brings every configuration into one place and makes the system\'s logic visible as you go.',
@@ -236,6 +238,32 @@ export const projects: Project[] = [
       src: '/images/project2/project2_2.jpeg',
       caption:
         'System constraints communicated through contextual messaging, helping users understand why certain options are unavailable'
+    },
+
+    {
+      type: 'text',
+      title: 'Following One Choice Through the Whole Flow',
+      content:
+        'A single channel selection could ripple through algorithm options, exclusion rules, and filters further down the same page. To show this wasn\'t just a single warning message but a consistent behavior across the entire builder, I traced one path end to end: choosing Web Smart Recommender immediately flags the previously selected algorithm and filter as incompatible, with the same plain-language explanation appearing at each point of conflict instead of a single upfront disclaimer the user would have to remember.'
+    },
+
+    {
+      type: 'image-slider',
+      title: 'How One Selection Cascades Through the Builder',
+      slides: [
+        {
+          src: '/images/project2/image-4.png',
+          caption: 'Starting point: an existing strategy with App Smart Recommender as the channel and Recently Viewed as the algorithm'
+        },
+        {
+          src: '/images/project2/image-5.png',
+          caption: 'Switching the channel to Web Smart Recommender immediately flags the algorithm as incompatible, with guidance to pick a different option'
+        },
+        {
+          src: '/images/project2/image-6.png',
+          caption: 'The same conflict messaging reappears wherever the channel change breaks a downstream setting, including saved filter conditions'
+        }
+      ]
     },
 
     {
@@ -321,6 +349,7 @@ export const projects: Project[] = [
     'Replaced offline onboarding calls with a guided, self-serve planning flow that recommends relevant use cases and turns them into an owned, assigned plan, cutting manual back-and-forth with CSMs, TAMs, and onboarding managers.',
   tags: ['UX Writing', 'Content Design', 'Onboarding', 'Self-Serve'],
   image: '/images/project3/welcome-empty.png',
+  hideHeroImage: true,
 
   overview:
     'This was, underneath everything, a writing problem. A CSM used to sit on a call and translate our product into a customer\'s business in real time: turning internal feature names into plain language, explaining why a field mattered, answering "does this apply to me" on the spot. To make this self-serve, every one of those spoken answers had to become written content: a question, a label, an empty state, a one-line explanation, that could do the same job with no one in the room.',
