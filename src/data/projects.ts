@@ -408,4 +408,153 @@ export const projects: Project[] = [
     }
   ]
 },
+
+{
+  id: 'content-pattern-library',
+  index: '04',
+  title: 'Building a Reusable Toaster and Error Message Pattern System',
+  category: 'Content Design · UX Writing · Content Systems',
+  year: '2025',
+  description:
+    'Replaced one-off toaster and error-message copy with a documented, reusable content pattern library, a shared grammar any writer or designer could apply consistently, so the product stopped sounding like it was written by whoever happened to touch that screen.',
+  tags: ['UX Writing', 'Content Systems', 'Design Systems', 'Error Handling'],
+  image: '/images/project4/toaster-grid.png',
+
+  overview:
+    'Before this system, toaster and error copy was written ad hoc per feature. Every team wrote its own version of "something went wrong," in its own words, with no shared logic for what made an error a warning versus a blocker, or how to handle the edge cases underneath the happy path. I built a pattern library organized by cause, not by feature, with a consistent placeholder grammar and explicit exception handling built into every pattern, so any designer or PM could pull a correct, on-brand message instead of drafting one from scratch or waiting on me.',
+
+  challenge:
+    'Error and status messaging is exactly the kind of content that quietly rots in a fast-growing product: every team needs it, nobody owns it end to end, and by the time it is bad enough to notice, there are hundreds of inconsistent one-offs to fix. The real challenge was not writing better individual messages, it was designing a system specific enough to be usable without me, and general enough to cover states nobody had thought to name yet, things like an action succeeding but with a caveat, an action being technically available but currently blocked, or the same field validation needing different wording depending on whether one item or several were selected.',
+
+  approach:
+    'I organized the system around why a message appears, not which screen it appears on: Action Completed, Action Failed, Action Invalid, Action Abused, Action Unauthorized, Action Unavailable, and Action Processing became the core vocabulary, each with its own default pattern and its own documented exceptions. Every pattern uses a consistent {placeholder} grammar (item_name, item, action, situation) so the underlying sentence structure never has to be reinvented, only the variables change. I extended the same discipline into form-level patterns, text entry, dropdown selection, item naming, image and file upload, documenting not just the copy but the exact character-limit math and device-specific trimming behavior behind it, so engineering and design had one place to check both the words and the constraints they had to design around.',
+
+  outcome:
+    'The result is a system other people can self-serve from. A designer building a new feature does not need to ask "how do we word a blocked action," they check Action Unavailable and get the default pattern plus its exception variant. This is the difference between writing consistent copy and building the system that makes consistency the path of least resistance, which is what I think "senior" actually means for a content designer: not writing every message, but making it structurally easy for anyone to write the right one.',
+
+  sections: [
+    {
+      type: 'text',
+      title: 'The Base Unit: A Toaster With Rules',
+      content:
+        'Every pattern in this system ultimately renders as a toaster, so I started by defining the component itself: four semantic types (info, warning, error, success), each available with no action, one link action, or two link actions. Fixing this grid first meant every pattern built on top of it inherited the same visual and structural vocabulary, so a "warning" never accidentally looked or read like an "error" two screens later.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/toaster-grid.png',
+      caption: 'The base toaster component: four semantic types across three action-complexity levels, the shared building block every pattern below is written for'
+    },
+    {
+      type: 'text',
+      title: 'Organizing by Cause, Not by Feature',
+      content:
+        'The core of the system is seven named states, each answering a different question about why the user is seeing this message: did the action succeed (Action Completed), fail from a system error (Action Failed), fail from something the user can fix (Action Invalid), get blocked by permissions (Action Unauthorized), get blocked by a limit (Action Unavailable), get rate-limited (Action Abused), or is it still running (Action Processing). Naming the cause, not the feature, is what makes the system reusable: a new feature does not need a new pattern, it needs to identify which of these seven situations it is actually in.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-completed.png',
+      caption: 'Action Completed: the default success pattern, plus a documented exception for duplication, so a common variant is already solved, not reinvented per team'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-completed-outside-panel.png',
+      caption: 'A variant of the same state for actions that complete outside the current panel, sharing the same {item_name} {item} grammar'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-failed.png',
+      caption: 'Action Failed: reserved specifically for system errors, deliberately separated from Action Invalid so the user always knows whether it is their fault or not'
+    },
+    {
+      type: 'text',
+      title: 'Designing the Edge Cases In, Not Around',
+      content:
+        'Most content guidelines document the happy path and leave edge cases to whoever hits them first. I did the opposite: every pattern includes its exception states as a first-class part of the documentation, shown in a dashed border so they read as "part of this pattern," not an afterthought. Action Abused splits into duration-specified and duration-not-specified variants. Action Unauthorized splits by whether the blocked action itself is known. Action Invalid handles both single-field and multi-field validation failures with different grammar for each.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-abused.png',
+      caption: 'Action Abused (rate limiting), with duration-specified and duration-not-specified variants documented side by side'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-unauthorized.png',
+      caption: 'Action Unauthorized, split by whether the specific blocked action can be named or not'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-unavailable.png',
+      caption: 'Action Unavailable: for actions blocked by a limit rather than a permission, with a recommended next step built into the pattern when one exists'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-invalid.png',
+      caption: 'Action Invalid, handling single-input and multi-input validation failures with distinct grammar for each, plus their own exception variants'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/action-processing.png',
+      caption: 'Action Processing: separate short-duration and long-duration variants, so async actions do not borrow language that overpromises or underexplains the wait'
+    },
+    {
+      type: 'text',
+      title: 'Extending the Grammar Into Form Inputs',
+      content:
+        'Once the state-based vocabulary existed, I extended it downward into the specific form components that trigger these states most often: text entry, dropdown selection, and item naming. Each gets the same treatment, a default required-field pattern, then its real exceptions (existing name given, invalid characters, limits exceeded), written with the same {item} and {generic_item} placeholder logic as the toaster patterns above, so a form validation message and a toaster message never feel like they came from two different systems.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/item-naming.png',
+      caption: 'Item Naming: required field, duplicate name, invalid input, and both character-limit directions, all sharing one grammar'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/general-text-entry.png',
+      caption: 'General text/value entry patterns, with an explicit content rule: label text and placeholder text are never allowed to diverge'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/dropdown-single.png',
+      caption: 'Dropdown single selection, including the generic-item exception for dropdowns with dynamically defined content'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/dropdown-multi.png',
+      caption: 'Dropdown multi-selection, adding a selection-limit-reached state that single-select never needs'
+    },
+    {
+      type: 'text',
+      title: 'Writing Character Limits as Content, Not Just Constraints',
+      content:
+        'Character limits are usually treated as a design or engineering constraint that content works around. I documented them as part of the content pattern itself, because the actual wording of a limit message changes depending on whether there is a lower bound, an upper bound, or both, and because dynamic content (like inserting a recipient\'s name) changes how trimming behaves differently across devices. Writing "the text may be trimmed on some devices depending on dynamic content" as a standard, reusable line meant no one had to rediscover that nuance the hard way in QA.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/text-entry-limits.png',
+      caption: 'Character limit patterns across five real scenarios, including how dynamic content changes trimming behavior by device, documented once, reused everywhere'
+    },
+    {
+      type: 'text',
+      title: 'Upload Patterns: Where Content Meets Real Constraints',
+      content:
+        'File and image upload errors are where content, design, and engineering constraints collide hardest, size limits, dimension ratios, formats, encoding. For image upload, I wrote one exception pattern that flexes across four failure reasons (size, dimensions, required field, invalid format) without needing four different messages. For file upload, I went further and wrote the actual usage requirements as content, CSV formatting rules, encoding support, how duplicate rows are handled, because a user is far more likely to read a bulleted requirements list before uploading than to parse a rejection message after.'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/image-upload.png',
+      caption: 'Image upload exceptions: one flexible pattern covering size, dimensions, required-field, and format failures'
+    },
+    {
+      type: 'image',
+      src: '/images/project4/file-upload.png',
+      caption: 'File upload for CSV coupon codes, where the real solution was writing the requirements clearly upfront, not just a better rejection message'
+    },
+    {
+      type: 'text',
+      title: 'Impact',
+      content:
+        'This system turned toaster and error copy from a recurring one-off request into something teams could self-serve correctly on the first try. New features inherit consistent, on-brand messaging by default, edge cases arrive pre-solved instead of surfacing in QA, and I stopped being a bottleneck for a category of writing that used to route through me by default. That shift, from writing the messages to building the system that writes them consistently without me, is the case I make for what senior content design work actually looks like.'
+    }
+  ]
+},
 ];
