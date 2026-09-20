@@ -237,6 +237,31 @@ export default function CaseStudy() {
     />
   );
 }
+
+    if (section.type === 'testimonial') {
+      return (
+        <motion.div
+          key={index}
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="max-w-2xl border-l-2 border-light-grey pl-6"
+        >
+          <p className="font-serif text-xl md:text-2xl font-medium text-charcoal leading-[1.5] italic mb-4">
+            "{section.quote}"
+          </p>
+          {(section.author || section.role) && (
+            <p className="font-sans text-sm text-mid-grey">
+              {section.author}
+              {section.author && section.role ? ', ' : ''}
+              {section.role}
+            </p>
+          )}
+        </motion.div>
+      );
+    }
+
     return null;
   })}
 </div>

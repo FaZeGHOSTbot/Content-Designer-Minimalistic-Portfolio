@@ -1,5 +1,5 @@
 export interface Section {
-  type: 'text' | 'image' | 'image-slider' | 'heading';
+  type: 'text' | 'image' | 'image-slider' | 'heading' | 'testimonial';
   title?: string;
   content?: string;
   src?: string;
@@ -7,6 +7,9 @@ export interface Section {
   images?: string[];
   size?: 'small' | 'medium' | 'large';
   slides?: { src: string; caption?: string }[];
+  quote?: string;
+  author?: string;
+  role?: string;
 }
 
 export interface ImpactMetric {
@@ -142,6 +145,28 @@ export const projects: Project[] = [
 
     {
       type: 'text',
+      title: 'Why These Words',
+      content:
+        'Every label in this flow was chosen to answer a specific question a user would silently ask. "Severity" over "priority" because severity describes impact, not just urgency, which is what a non-technical user actually needs to triage. I avoided system terms like "validation failure" entirely, replacing them with what actually happened ("this field doesn\'t match the expected format") so users never had to translate our language into their own before they could act.'
+    },
+
+    {
+      type: 'text',
+      title: 'Iterations and Testing',
+      content:
+        'The first draft of the error report grouped issues by data source, which tested poorly: users cared about how bad an error was, not where it came from. I re-sorted by severity first and moved source into a secondary tag after a round of usability testing showed people abandoning the page while scanning for the most urgent items. Later feedback from support flagged that "fix it now" language felt alarming for low-severity issues, so I split the copy by severity tier: direct instructions for blockers, softer "you can address this later" framing for warnings.'
+    },
+
+    {
+      type: 'testimonial',
+      quote:
+        'The rewritten error flow cut our escalations almost overnight. Support stopped being the translation layer between the product and the customer.',
+      author: 'Onboarding Team Lead',
+      role: 'Internal stakeholder'
+    },
+
+    {
+      type: 'text',
       title: 'Impact',
       content:
         'The experience shifted from a technical error log to a guided resolution flow. Users can now quickly understand issues, take action without external help, and confidently progress through onboarding. This reduces friction, improves task completion, and creates a more intuitive product experience.'
@@ -253,6 +278,28 @@ export const projects: Project[] = [
       src: '/images/project2/project2_5.jpeg',
       caption:
         'Informational messaging that explains why certain configurations are locked or cannot be edited'
+    },
+
+    {
+      type: 'text',
+      title: 'Reflection and Rationale',
+      content:
+        'I chose to explain restrictions in terms of consequence ("this strategy is live, so editing it would change results your team is already relying on") rather than just stating the rule ("this field is locked"). Stating a rule without a reason reads as arbitrary; explaining the consequence makes the restriction feel like protection instead of a blocker, which mattered a lot given how many interdependent choices this builder had.'
+    },
+
+    {
+      type: 'text',
+      title: 'Iterations and Feedback',
+      content:
+        'Early versions greyed out unavailable options with no explanation, and usability sessions showed users repeatedly clicking disabled controls trying to figure out why. I added inline reasoning to every disabled state as a direct result, then tested a second round where messaging was too technical (referencing internal rule names); that copy was rewritten again to describe the user\'s own prior choice as the cause, closing the loop between decision and consequence.'
+    },
+
+    {
+      type: 'testimonial',
+      quote:
+        'This is the first time a complex config builder in our product actually explained itself. Support tickets about "why can\'t I select this" dropped noticeably after launch.',
+      author: 'Product Manager',
+      role: 'Internal stakeholder'
     },
 
     {
@@ -409,6 +456,21 @@ export const projects: Project[] = [
       src: '/images/project3/defined-details-drawer.png',
       caption: 'Defined use case detail: strategy and setup requirements shown together as a hand-off document for whoever executes it'
     },
+    {
+      type: 'text',
+      title: 'Iterations and Testing',
+      content:
+        'The first version of the use case descriptions still leaned on product terminology because I drafted them straight from internal trigger documentation. Testing that draft with non-technical marketers surfaced the gap immediately: several couldn\'t tell whether a use case applied to their business without asking someone. I rewrote every description as a short story a marketer would recognize, then re-tested; comprehension and selection confidence both improved, which is what led to the "Quick Win" versus "Easy" labeling decision described above, that came directly from watching users hesitate over ambiguous effort language in the earlier round.'
+    },
+
+    {
+      type: 'testimonial',
+      quote:
+        'Customers were building onboarding plans on their own within minutes, something that used to take a full call with a CSM. The writing is doing the explaining that we used to do live.',
+      author: 'Onboarding Manager',
+      role: 'Internal stakeholder'
+    },
+
     {
       type: 'text',
       title: 'Impact',
