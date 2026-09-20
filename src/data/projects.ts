@@ -247,17 +247,41 @@ export const projects: Project[] = [
   slides: [
     {
       src: '/images/project2/image1.jpeg',
-      caption: 'Strategy creation flow where users configure channels and page types upon which the selection below differs'
+      caption:
+        'Strategy creation flow where users configure channels and page types, with subsequent options adapting to their selections'
     },
     {
       src: '/images/project2/image2.jpeg',
-      caption: 'Exit confirmation modal preventing accidental data loss'
+      caption:
+        'Exit confirmation modal preventing users from accidentally losing their strategy configuration'
     },
     {
       src: '/images/project2/image3.jpeg',
-      caption: 'Strategy list view with success feedback after creation'
+      caption:
+        'Confirmation state after successfully creating a strategy'
     }
   ]
+},
+
+{
+  type: 'text',
+  title: 'Managing Strategies After Creation',
+  content:
+    'Once a strategy is created, users return to a centralized listing page where they can quickly understand and manage all of their existing strategies. The table surfaces the most important details at a glance, including the strategy name, method, algorithms used, and supported channel types, so users can understand what a strategy contains without opening it. This makes the listing page useful not just for navigation, but as a quick reference for comparing and managing strategies.'
+},
+
+{
+  type: 'image',
+  src: '/images/project2/22.png',
+  caption:
+    'Strategy listing page designed as a quick reference, surfacing status, method, algorithms, and supported channels so users only need to open a strategy when they need to edit it.'
+},
+
+{
+  type: 'text',
+  title: 'Using Status Labels Without Creating Confusion',
+  content:
+    'Status terminology required additional care because campaigns in the product already used labels such as “Active” and “Passive.” Reusing those terms for strategies could make it unclear whether a status referred to the strategy itself or to the campaign using it. I introduced “Live,” “Idle,” and “Unused” as strategy-specific status labels, giving users a clear distinction between the state of a strategy and the state of a campaign.'
 },
 
     {
