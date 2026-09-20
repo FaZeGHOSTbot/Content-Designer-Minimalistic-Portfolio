@@ -97,13 +97,15 @@ export default function CaseStudy() {
         </div>
       </motion.div>
 
-<div className="w-full mb-20 flex justify-center">
-  <img
-    src={project.image}
-    alt={project.title}
-    className="w-full max-w-5xl h-auto object-contain rounded-lg"
-  />
-</div>
+{!project.hideHeroImage && (
+  <div className="w-full mb-20 flex justify-center">
+    <img
+      src={project.image}
+      alt={project.title}
+      className="w-full max-w-5xl h-auto object-contain rounded-lg"
+    />
+  </div>
+)}
 
 <div className="space-y-16">
   {/* Pull quote (keep this from old design) */}
@@ -132,9 +134,12 @@ export default function CaseStudy() {
           <span className="font-sans text-xs text-mid-grey uppercase block mb-8 tracking-[0.2em]">
             Impact in numbers
           </span>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div
+            className="grid gap-8"
+            style={{ gridTemplateColumns: `repeat(${Math.min(project.impactMetrics.length, 3)}, minmax(0, 1fr))` }}
+          >
             {project.impactMetrics.map((metric) => (
-              <div key={`${metric.value}-${metric.label}`}>
+              <div key={`${metric.value}-${metric.label}`} className="max-w-sm">
                 <p className="font-serif text-4xl md:text-5xl font-medium text-charcoal mb-3">
                   {metric.value}{metric.suffix}
                 </p>
@@ -152,6 +157,23 @@ export default function CaseStudy() {
 
   {/* NEW dynamic sections */}
   {project.sections?.map((section, index) => {
+    if (section.type === 'heading') {
+      return (
+        <motion.div
+          key={index}
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="pt-12 border-t border-light-grey"
+        >
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-charcoal">
+            {section.title}
+          </h2>
+        </motion.div>
+      );
+    }
+
     if (section.type === 'text') {
       return (
         <motion.div
