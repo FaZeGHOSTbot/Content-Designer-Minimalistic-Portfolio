@@ -1,5 +1,5 @@
 export interface Section {
-  type: 'text' | 'image' | 'image-slider';
+  type: 'text' | 'image' | 'image-slider' | 'heading';
   title?: string;
   content?: string;
   src?: string;
@@ -17,7 +17,8 @@ export interface Project {
   year: string;
   description: string;
   tags: string[];
-  image: string;
+  image?: string;
+  hideHeroImage?: boolean;
 
   overview: string;
   challenge: string;
@@ -412,13 +413,13 @@ export const projects: Project[] = [
 {
   id: 'content-pattern-library',
   index: '04',
-  title: 'Building a Reusable Toaster and Error Message Pattern System',
+  title: 'Built a Reusable Toaster and Validation/Error Message Pattern System',
   category: 'Content Design · UX Writing · Content Systems',
   year: '2025',
   description:
     'Replaced one-off toaster and error-message copy with a documented, reusable content pattern library, a shared grammar any writer or designer could apply consistently, so the product stopped sounding like it was written by whoever happened to touch that screen.',
   tags: ['UX Writing', 'Content Systems', 'Design Systems', 'Error Handling'],
-  image: '/images/project4/toaster-grid.png',
+  hideHeroImage: true,
 
   overview:
     'Before this system, toaster and error copy was written ad hoc per feature. Every team wrote its own version of "something went wrong," in its own words, with no shared logic for what made an error a warning versus a blocker, or how to handle the edge cases underneath the happy path. I built a pattern library organized by cause, not by feature, with a consistent placeholder grammar and explicit exception handling built into every pattern, so any designer or PM could pull a correct, on-brand message instead of drafting one from scratch or waiting on me.',
@@ -434,36 +435,29 @@ export const projects: Project[] = [
 
   sections: [
     {
-      type: 'text',
-      title: 'The Base Unit: A Toaster With Rules',
-      content:
-        'Every pattern in this system ultimately renders as a toaster, so I started by defining the component itself: four semantic types (info, warning, error, success), each available with no action, one link action, or two link actions. Fixing this grid first meant every pattern built on top of it inherited the same visual and structural vocabulary, so a "warning" never accidentally looked or read like an "error" two screens later.'
-    },
-    {
-      type: 'image',
-      src: '/images/project4/toaster-grid.png',
-      caption: 'The base toaster component: four semantic types across three action-complexity levels, the shared building block every pattern below is written for'
+      type: 'heading',
+      title: 'Toasters With Rules'
     },
     {
       type: 'text',
-      title: 'Organizing by Cause, Not by Feature',
+      title: 'Defining the Toaster and Its Seven States',
       content:
-        'The core of the system is seven named states, each answering a different question about why the user is seeing this message: did the action succeed (Action Completed), fail from a system error (Action Failed), fail from something the user can fix (Action Invalid), get blocked by permissions (Action Unauthorized), get blocked by a limit (Action Unavailable), get rate-limited (Action Abused), or is it still running (Action Processing). Naming the cause, not the feature, is what makes the system reusable: a new feature does not need a new pattern, it needs to identify which of these seven situations it is actually in.'
+        'Every pattern in this system ultimately renders as a toaster, so I started by defining the component itself: four semantic types (info, warning, error, success), each available with no action, one link action, or two link actions. Fixing this grid first meant every pattern built on top of it inherited the same visual and structural vocabulary, so a "warning" never accidentally looked or read like an "error" two screens later. On top of that base, the core of the system is seven named states, each answering a different question about why the user is seeing this message: did the action succeed (Action Completed), fail from a system error (Action Failed), fail from something the user can fix (Action Invalid), get blocked by permissions (Action Unauthorized), get blocked by a limit (Action Unavailable), get rate-limited (Action Abused), or is it still running (Action Processing). Naming the cause, not the feature, is what makes the system reusable: a new feature does not need a new pattern, it needs to identify which of these seven situations it is actually in.'
     },
     {
       type: 'image',
       src: '/images/project4/action-completed.png',
-      caption: 'Action Completed: the default success pattern, plus a documented exception for duplication, so a common variant is already solved, not reinvented per team'
+      caption: 'Action Completed — Success notification displayed when a user action has been completed successfully.'
     },
     {
       type: 'image',
       src: '/images/project4/action-completed-outside-panel.png',
-      caption: 'A variant of the same state for actions that complete outside the current panel, sharing the same {item_name} {item} grammar'
+      caption: 'Action Completed Outside Panel — Informational notification shown when an action is successfully initiated but completed outside the current panel.'
     },
     {
       type: 'image',
       src: '/images/project4/action-failed.png',
-      caption: 'Action Failed: reserved specifically for system errors, deliberately separated from Action Invalid so the user always knows whether it is their fault or not'
+      caption: 'Action Failed — Error notification displayed when a user action encounters a system-level failure.'
     },
     {
       type: 'text',
@@ -474,53 +468,56 @@ export const projects: Project[] = [
     {
       type: 'image',
       src: '/images/project4/action-abused.png',
-      caption: 'Action Abused (rate limiting), with duration-specified and duration-not-specified variants documented side by side'
+      caption: 'Action Abused — Warning state shown when a user repeatedly performs the same action within a restricted time period.'
     },
     {
       type: 'image',
       src: '/images/project4/action-unauthorized.png',
-      caption: 'Action Unauthorized, split by whether the specific blocked action can be named or not'
+      caption: 'Action Unauthorized — Error states for actions the user is not authorized to perform, with and without a specified action.'
     },
     {
       type: 'image',
       src: '/images/project4/action-unavailable.png',
-      caption: 'Action Unavailable: for actions blocked by a limit rather than a permission, with a recommended next step built into the pattern when one exists'
+      caption: 'Action Unavailable — Error states displayed when a requested action is unavailable or restricted for the selected item.'
     },
     {
       type: 'image',
       src: '/images/project4/action-invalid.png',
-      caption: 'Action Invalid, handling single-input and multi-input validation failures with distinct grammar for each, plus their own exception variants'
+      caption: 'Action Invalid — Validation notifications shown when user-provided inputs prevent an action from being completed.'
     },
     {
       type: 'image',
       src: '/images/project4/action-processing.png',
-      caption: 'Action Processing: separate short-duration and long-duration variants, so async actions do not borrow language that overpromises or underexplains the wait'
+      caption: 'Action Processing — Informational notification displayed while a user action is being processed or completed asynchronously.'
+    },
+    {
+      type: 'heading',
+      title: 'Extending the Grammar Into Validation Messages'
     },
     {
       type: 'text',
-      title: 'Extending the Grammar Into Form Inputs',
       content:
         'Once the state-based vocabulary existed, I extended it downward into the specific form components that trigger these states most often: text entry, dropdown selection, and item naming. Each gets the same treatment, a default required-field pattern, then its real exceptions (existing name given, invalid characters, limits exceeded), written with the same {item} and {generic_item} placeholder logic as the toaster patterns above, so a form validation message and a toaster message never feel like they came from two different systems.'
     },
     {
       type: 'image',
       src: '/images/project4/item-naming.png',
-      caption: 'Item Naming: required field, duplicate name, invalid input, and both character-limit directions, all sharing one grammar'
+      caption: 'Item Naming — Validation states for required, duplicate, invalid, and character-limit errors when naming items.'
     },
     {
       type: 'image',
       src: '/images/project4/general-text-entry.png',
-      caption: 'General text/value entry patterns, with an explicit content rule: label text and placeholder text are never allowed to diverge'
+      caption: 'General Text or Value Entry — Validation states for required, invalid, and duplicate text or value inputs.'
     },
     {
       type: 'image',
       src: '/images/project4/dropdown-single.png',
-      caption: 'Dropdown single selection, including the generic-item exception for dropdowns with dynamically defined content'
+      caption: 'Dropdown Single Selection — Validation states for required single-select dropdown fields and missing selections.'
     },
     {
       type: 'image',
       src: '/images/project4/dropdown-multi.png',
-      caption: 'Dropdown multi-selection, adding a selection-limit-reached state that single-select never needs'
+      caption: 'Dropdown Multi Selection — Validation states for required multi-select fields and selection-limit errors.'
     },
     {
       type: 'text',
@@ -531,7 +528,7 @@ export const projects: Project[] = [
     {
       type: 'image',
       src: '/images/project4/text-entry-limits.png',
-      caption: 'Character limit patterns across five real scenarios, including how dynamic content changes trimming behavior by device, documented once, reused everywhere'
+      caption: 'Text Entry Limits — Validation states for character limits, existing entries, and message text length restrictions.'
     },
     {
       type: 'text',
@@ -542,12 +539,12 @@ export const projects: Project[] = [
     {
       type: 'image',
       src: '/images/project4/image-upload.png',
-      caption: 'Image upload exceptions: one flexible pattern covering size, dimensions, required-field, and format failures'
+      caption: 'Image Upload — Validation states for image size, dimensions, required fields, and unsupported image formats.'
     },
     {
       type: 'image',
       src: '/images/project4/file-upload.png',
-      caption: 'File upload for CSV coupon codes, where the real solution was writing the requirements clearly upfront, not just a better rejection message'
+      caption: 'File Upload — Validation state for invalid file uploads, including unsupported formats, sizes, or file requirements.'
     },
     {
       type: 'text',
